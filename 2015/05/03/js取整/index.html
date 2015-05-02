@@ -4,19 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>远程调试移动端html | 宾克斯的美酒</title>
+    <title>js取整 | 宾克斯的美酒</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xcl">
     
-    <meta name="description" content="使用 weinre
-安装
-weinre 是基于nodejs的。安装之前要配置好nodejs和npm
-1$ npm install weinre
-
-使用
-使用也比较简单
-1$ weinre httpPort 8081 -boundHost -all-  //开启 更多命令可查看 weinre --he">
+    <meta name="description" content="Math.random(x)          返回一个0-1之间的随机浮点数Math.ceil(x)
+12345Math.ceil(0.6)   //1Math.ceil(0.4)  //1Math.ceil(5)   //5Math.ceil(-5.1) //-5Math.ceil(-5.9) ">
     
     
     
@@ -73,15 +67,15 @@ weinre 是基于nodejs的。安装之前要配置好nodejs和npm
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/01/28/weinre/" title="远程调试移动端html" itemprop="url">远程调试移动端html</a>
+      <a href="/2015/05/03/js取整/" title="js取整" itemprop="url">js取整</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://xchl.github.com" title="xcl">xcl</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-01-28T03:56:29.000Z" itemprop="datePublished">1月 28 2015</time>
-    更新日期:<time datetime="2015-02-10T01:31:32.000Z" itemprop="dateModified">2月 10 2015</time>
+    <time datetime="2015-05-02T23:02:18.000Z" itemprop="datePublished">5月 3 2015</time>
+    更新日期:<time datetime="2015-05-02T23:08:39.000Z" itemprop="dateModified">5月 3 2015</time>
     
   </p>
 </header>
@@ -90,31 +84,25 @@ weinre 是基于nodejs的。安装之前要配置好nodejs和npm
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用_weinre"><span class="toc-number">1.</span> <span class="toc-text">使用 weinre</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<h2 id="使用_weinre">使用 <a href="http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html" target="_blank" rel="external">weinre</a></h2>
-<h3 id="安装">安装</h3>
-<p>weinre 是基于nodejs的。安装之前要配置好nodejs和npm</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install weinre</div></pre></td></tr></table></figure>
+		<p>Math.random(x)<br>          返回一个0-1之间的随机浮点数<br>Math.ceil(x)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">0.6</span>)   <span class="comment">//1</span></div><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">0.4</span>)  <span class="comment">//1</span></div><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">5</span>)   <span class="comment">//5</span></div><div class="line"><span class="built_in">Math</span>.ceil(-<span class="number">5.1</span>) <span class="comment">//-5</span></div><div class="line"><span class="built_in">Math</span>.ceil(-<span class="number">5.9</span>) <span class="comment">//-5</span></div></pre></td></tr></table></figure>
 
-<h3 id="使用">使用</h3>
-<p>使用也比较简单</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ weinre httpPort <span class="number">8081</span> -boundHost -all-  //开启 更多命令可查看 weinre --help</div></pre></td></tr></table></figure>
+<pre><code>      对一个数字进行上舍入，返回值大于等于x，并且与它最接近的整数
+</code></pre><p>Math.floor(x)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.floor(<span class="number">0.6</span>)  <span class="comment">//0</span></div><div class="line"><span class="built_in">Math</span>.floor(<span class="number">5</span>)    <span class="comment">//5</span></div><div class="line"><span class="built_in">Math</span>.floor(-<span class="number">5.1</span>) <span class="comment">//-6</span></div></pre></td></tr></table></figure>
 
-<p>开启之后访问 localhosh:8081 即可查看调试页面</p>
-<p>在需要调试的页面上添加上</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://你的IP地址:8081/target/target-script-min.js#anonymous"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code>      对一个数字下舍入，返回值小于等于x,且与x最接近的整数
+</code></pre><p>Math.round(x)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.round(<span class="number">0.6</span>) <span class="comment">//1</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">0.4</span>) <span class="comment">//0</span></div><div class="line"><span class="built_in">Math</span>.round(-<span class="number">0.4</span>) <span class="comment">//-4</span></div><div class="line"><span class="built_in">Math</span>.round(-<span class="number">0.46</span>) <span class="comment">//-5</span></div></pre></td></tr></table></figure>
 
-<p>之后就可调试了</p>
+<pre><code>      对一个数字四舍五入，返回值小于等于x,且与x最接近的整数
+</code></pre><p>parseInt(x)<br>          解析字符串变为整数，也可用来直接舍弃小数部分</p>
   
 	</div>
 		<footer class="article-footer clearfix">
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/js/">js</a><a href="/tags/html5/">html5</a><a href="/tags/mobile/">mobile</a>
-  </div>
 
 
 <div class="article-categories">
@@ -126,7 +114,7 @@ weinre 是基于nodejs的。安装之前要配置好nodejs和npm
 
 <div class="article-share" id="share">
 
-  <div data-url="http://xchl.github.com/2015/01/28/weinre/" data-title="远程调试移动端html | 宾克斯的美酒" data-tsina="null" class="share clearfix">
+  <div data-url="http://xchl.github.com/2015/05/03/js取整/" data-title="js取整 | 宾克斯的美酒" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -135,14 +123,14 @@ weinre 是基于nodejs的。安装之前要配置好nodejs和npm
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/02/06/trait-php/" title="PHP5.4中的trait特性">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  PHP5.4中的trait特性</span>
+
+<div class="next">
+<a href="/2015/04/28/nodejs-1/"  title="nodejs-1">
+ <strong>NEXT:</strong><br/> 
+ <span>nodejs-1
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -156,7 +144,7 @@ weinre 是基于nodejs的。安装之前要配置好nodejs和npm
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用_weinre"><span class="toc-number">1.</span> <span class="toc-text">使用 weinre</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">
