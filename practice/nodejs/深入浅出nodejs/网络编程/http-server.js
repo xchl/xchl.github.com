@@ -1,8 +1,8 @@
 var http = require('http');
 var sessions = {};
-console.log(parseInt(1.5));
 var server = http.createServer(function(req,res){
-    //sessions['']
+    sessions[parseInt(Math.random()*10)] = new Date();
+    console.log(sessions);
     res.writeHead(200,{'Content-Type':'text/plain'});
     res.end('hello world');
 }).listen(1337,'127.0.0.1');

@@ -4,15 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>nodejs-1 | 宾克斯的美酒</title>
+    <title>Redis安装 | 宾克斯的美酒</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xcl">
     
-    <meta name="description" content="Nodejs深入浅出 学习记录
-Nodejs 特点
-异步I/O
-12345var fs = require(&#39;ss&#39;);fs.readFile(&#39;a.json&#39;,function(err,file){ //io执行完后的回调函数    console.log(&#39;文件读取完成&#39;);});console">
+    <meta name="description" content="Redis简介
+1.存储方式Redis 数据库中的所有数据都存储在内存中，一秒内可以读写超过十万个键值。也可以将内存中的数据异步写入到硬盘中。2.Redis是单线程模型，Memcached支持多线程，在多核服务器上后者性能可能更高。3.Redis 可以限定最大内存空间，在数据达到内存限制后会按照一定">
     
     
     
@@ -69,15 +67,15 @@ Nodejs 特点
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/28/nodejs-1/" title="nodejs-1" itemprop="url">nodejs-1</a>
+      <a href="/2015/05/06/Redis安装/" title="Redis安装" itemprop="url">Redis安装</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://xchl.github.com" title="xcl">xcl</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-04-28T11:30:01.000Z" itemprop="datePublished">4月 28 2015</time>
-    更新日期:<time datetime="2015-04-28T12:31:30.000Z" itemprop="dateModified">4月 28 2015</time>
+    <time datetime="2015-05-06T07:41:51.000Z" itemprop="datePublished">5月 6 2015</time>
+    更新日期:<time datetime="2015-05-06T07:47:06.000Z" itemprop="dateModified">5月 6 2015</time>
     
   </p>
 </header>
@@ -86,30 +84,37 @@ Nodejs 特点
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nodejs深入浅出_学习记录"><span class="toc-number">1.</span> <span class="toc-text">Nodejs深入浅出 学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nodejs_特点"><span class="toc-number">1.1.</span> <span class="toc-text">Nodejs 特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#异步I/O"><span class="toc-number">1.1.1.</span> <span class="toc-text">异步I/O</span></a></li></ol></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis简介"><span class="toc-number">1.</span> <span class="toc-text">Redis简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis安装,启动，停止"><span class="toc-number">2.</span> <span class="toc-text">Redis安装,启动，停止</span></a></li></ol>
 		</div>
 		
-		<h2 id="Nodejs深入浅出_学习记录">Nodejs深入浅出 学习记录</h2>
-<h3 id="Nodejs_特点">Nodejs 特点</h3>
-<h4 id="异步I/O">异步I/O</h4>
-<figure class="highlight node"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'ss'</span>);</div><div class="line">fs.readFile(<span class="string">'a.json'</span>,<span class="function"><span class="keyword">function</span><span class="params">(err,file)</span></span>{ <span class="comment">//io执行完后的回调函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'文件读取完成'</span>);</div><div class="line">});</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'hello'</span>);</div></pre></td></tr></table></figure>
+		<h3 id="Redis简介">Redis简介</h3>
+<p>1.存储方式<br>Redis 数据库中的所有数据都存储在内存中，一秒内可以读写超过十万个键值。<br>也可以将内存中的数据异步写入到硬盘中。<br>2.Redis是单线程模型，Memcached支持多线程，在多核服务器上后者性能可能更高。<br>3.Redis 可以限定最大内存空间，在数据达到内存限制后会按照一定的规则自动淘汰不需要的键。<br>4.Redis 的列表类型可以用来实现队列，并且支持阻塞式读取。Redis 还支持“发布/订阅”的消息模式，可以基于此构建聊天室。</p>
+<h3 id="Redis安装,启动，停止">Redis安装,启动，停止</h3>
+<p>Redis 安装 (Centos)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget http://download.redis.io/releases/redis-<span class="number">3.0</span>.<span class="number">0</span>.tar.gz</div><div class="line">tar zxf  redis-<span class="number">3.0</span>.<span class="number">0</span>.tar.gz</div><div class="line"><span class="built_in">cd</span> redis-<span class="number">3.0</span>.<span class="number">0</span></div><div class="line">make && make install</div><div class="line">//如果执行make test 出错 You need tcl <span class="number">8.5</span> or newer <span class="keyword">in</span> order to run the Redis test</div><div class="line"> 原因 Redis的测试用例使用也就是test目录下用的是tcl脚本    // yum install -y tcl</div></pre></td></tr></table></figure>
 
-<p>上面程序会先输出 hello 执行顺序如下</p>
-<p><img src="http://7vij1e.com1.z0.glb.clouddn.com/nodejs-io.png" style="display:block;max-width:30%"></p>
-<p>Node 大多数的操作都是以异步方式进行调用，每个调用之间无须等待之前I/O调用结束</p>
-<figure class="highlight node"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用一个大文件和一个小文件测试异步I/O</span></div><div class="line">fs.readFile(<span class="string">'big.json'</span>,<span class="function"><span class="keyword">function</span><span class="params">(err,file)</span></span>{ <span class="comment">//io执行完后的回调函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'big.json读取完成'</span>);</div><div class="line">});</div><div class="line">fs.readFile(<span class="string">'small.json'</span>,<span class="function"><span class="keyword">function</span><span class="params">(err,file)</span></span>{ <span class="comment">//io执行完后的回调函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'small.json读取完成'</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>对于异步I/O上面的两个读取文件任务的耗时取决于最慢的那个文件读取耗时，二对于同步I/O耗时则是两个任务之和。</p>
+<p>Redis 启动<br>/src/目录下<br>redis-server                          Redis服务器<br>redis-cli                                命令行客户端<br>redis-benchmark                  Redis性能测试工具<br>redis-check-aof                    AOF文件修复工具<br>redis-check-dump               RDB文件检查工具<br>开机自启动   Redis源代码目录 utils/redis_init_script 初始化脚本文件</p>
+<p>停止：<br>redis-cli SHUTDOWN</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/redis/">redis</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Redis/">redis</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://xchl.github.com/2015/04/28/nodejs-1/" data-title="nodejs-1 | 宾克斯的美酒" data-tsina="null" class="share clearfix">
+  <div data-url="http://xchl.github.com/2015/05/06/Redis安装/" data-title="Redis安装 | 宾克斯的美酒" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -118,19 +123,11 @@ Nodejs 特点
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/05/03/js取整/" title="js取整">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  js取整</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/04/15/bingkesidejiu/"  title="宾克斯的美酒">
+<a href="/2015/05/03/js取整/"  title="js取整">
  <strong>NEXT:</strong><br/> 
- <span>宾克斯的美酒
+ <span>js取整
 </span>
 </a>
 </div>
@@ -147,7 +144,7 @@ Nodejs 特点
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nodejs深入浅出_学习记录"><span class="toc-number">1.</span> <span class="toc-text">Nodejs深入浅出 学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nodejs_特点"><span class="toc-number">1.1.</span> <span class="toc-text">Nodejs 特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#异步I/O"><span class="toc-number">1.1.1.</span> <span class="toc-text">异步I/O</span></a></li></ol></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis简介"><span class="toc-number">1.</span> <span class="toc-text">Redis简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis安装,启动，停止"><span class="toc-number">2.</span> <span class="toc-text">Redis安装,启动，停止</span></a></li></ol>
   </div>
 
 <div id="asidepart">
