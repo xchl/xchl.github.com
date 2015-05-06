@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>宾克斯的美酒 | 宾克斯的美酒</title>
+    <title>Redis之列表类型(list) | 宾克斯的美酒</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xcl">
     
-    <meta name="description" content="宾克期的美酒哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯给你送去宾克斯 酝酿已久的美酒散发出  大海男儿常有的香味在海潮的另一边 夕阳辉映照耀着鸟之歌  在蔚蓝天空划出弧线再见了海湾港口  航海去向大海上唱起歌  奔向那未知旅途路上金波银波翻腾着 都化做美丽浪花让我们">
+    <meta name="description" content="列表类型（list）可以存储一个有序的字符串列表，常用的操作是向列表两端添加元素，或者获得列表的某一个片段。列表类型内部是使用双向链表（double linked list）实现的，所以向列表两端添加元素的时间复杂度为0，获取越接近两端的元素速度就越快。例如一个有几千万个元素的列表，获取头尾10条记">
     
     
     
@@ -66,15 +66,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/15/bingkesidejiu/" title="宾克斯的美酒" itemprop="url">宾克斯的美酒</a>
+      <a href="/2015/05/06/Redis之列表类型/" title="Redis之列表类型(list)" itemprop="url">Redis之列表类型(list)</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://xchl.github.com" title="xcl">xcl</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-04-15T01:39:06.000Z" itemprop="datePublished">4月 15 2015</time>
-    更新日期:<time datetime="2015-04-15T01:49:41.000Z" itemprop="dateModified">4月 15 2015</time>
+    <time datetime="2015-05-06T08:04:54.000Z" itemprop="datePublished">5月 6 2015</time>
+    更新日期:<time datetime="2015-05-06T08:09:07.000Z" itemprop="dateModified">5月 6 2015</time>
     
   </p>
 </header>
@@ -86,22 +86,33 @@
 		
 		</div>
 		
-		<blockquote>
-
-<p>宾克期的美酒<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯<br>给你送去宾克斯 酝酿已久的美酒<br>散发出  大海男儿常有的香味<br>在海潮的另一边 夕阳辉映照耀着<br>鸟之歌  在蔚蓝天空划出弧线<br>再见了海湾港口  航海去向大海上<br>唱起歌  奔向那未知旅途路上<br>金波银波翻腾着 都化做美丽浪花<br>让我们  前往伟大航路的尽头<br>给你送去宾克斯  期待已久的美酒<br>扬起帆  架起船舵飘向昌险处<br>波涛如同海贼枕 船就是海贼的家<br>在旗上  立着他们标志骷髅头<br>狂风暴雨要来了 过后是万里晴空<br>波浪舞动一条线 鼓声响起西边<br>胆小的风有勇气 努力拂动到最后<br>明日的  明日朝阳还会出现<br>给你送去宾克斯 酝酿已久的美酒<br>散发出  大海男儿常有的香味<br>在海潮的另一边 夕阳辉映照耀着<br>鸟之歌  在蔚蓝天空划出弧线<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯<br>给你送去宾克斯 引诱海贼的美酒<br>让我们  一起为海贼禁尽情欢呼<br>本已逝去的身影 永远不会再相见<br>又何必  再次想起那些伤心事<br>给你送去宾克斯 垂帘已久的美酒<br>让我们  一起来歌唱大海之歌<br>不论是他还是你 人却总会有一死<br>没所谓  大海的尽头继续前进<br>给你送去宾克斯 引诱海贼的美酒<br>让我们  一起为海贼禁尽情欢呼<br>本已逝去的身影 永远不会再相见<br>又何必  再次想起那些伤心事<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯<br>给你送去宾克斯 酝酿已久的美酒<br>散发出  大海男儿常有的香味<br>在海潮的另一边 夕阳辉映照耀着<br>鸟之歌  在蔚蓝天空划出弧线<br>再见了海湾港口  航海去向大海上<br>唱起歌  奔向那未知旅途路上<br>唱起歌  奔向那大海旅途路上<br>哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯 哟嚯嚯嚯</p>
-</blockquote>
-
-<iframe src="/practice/audio/audio.html" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+		<p>列表类型（list）可以存储一个有序的字符串列表，常用的操作是向列表两端添加元素，或者获得列表的某一个片段。<br>列表类型内部是使用双向链表（double linked list）实现的，所以向列表两端添加元素的时间复杂度为0，获取越接近两端的元素速度就越快。例如一个有几千万个元素的列表，获取头尾10条记录和只有20记录的列表获取速度是一样的。</p>
+<p>LPUSH key val [val…]     //向列表左端增加元素 返回值是元素增加后的列表长度<br>          lpush key 1 2 3</p>
+<p>RPUSH key val [val…]<br>          push key 0 -1</p>
+<p>LPOP key           //从左边弹出<br>RPOP key          //从右边弹出</p>
+<p>LLEN key      //返回列表中元素个数</p>
+<p>LRANGE key start stop       //获取列表中的某一片段。支持负索引 lrange key 0 -1(获取所有元素)</p>
+<p>LREM key count val          //删除列表中前count个值为value的元素<br>                  count &gt; 0       会从列表左边开始删除前count个值为value<br>                  count &lt; 0       会从列表右边开始删除count个值为value<br>                  count = 0       删除所有value的元素                                   </p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/redis/">redis</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Redis/">redis</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://xchl.github.com/2015/04/15/bingkesidejiu/" data-title="宾克斯的美酒 | 宾克斯的美酒" data-tsina="null" class="share clearfix">
+  <div data-url="http://xchl.github.com/2015/05/06/Redis之列表类型/" data-title="Redis之列表类型(list) | 宾克斯的美酒" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -111,18 +122,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/04/28/nodejs-1/" title="nodejs-1">
+ <a href="/2015/05/06/mac-iterm2/" title="">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  nodejs-1</span>
+  (no title)</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/03/02/angularjs-入门/"  title="angularjs入门(1)">
+<a href="/2015/05/06/Redis之散列类型/"  title="Redis之散列类型(hash)">
  <strong>NEXT:</strong><br/> 
- <span>angularjs入门(1)
+ <span>Redis之散列类型(hash)
 </span>
 </a>
 </div>
