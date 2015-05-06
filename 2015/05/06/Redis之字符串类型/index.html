@@ -9,7 +9,11 @@
     
     <meta name="author" content="xcl">
     
-    <meta name="description" content="123456789101112131415161718192021222324252627282930313233KEYS pattern       pattern 支持glob风格通配符。  KEYS 命令需要遍历Redis所有的键，数据较多时谨慎使用EXISTS key //判断一个键是否存在">
+    <meta name="description" content="KEYS pattern     pattern 支持glob风格通配符。
+KEYS 命令需要遍历Redis所有的键，数据较多时谨慎使用
+EXISTS key //判断一个键是否存在
+DEL key   //删除一个或多个键 del foo bar // 2
+TYPE key //返回键值的数据类型">
     
     
     
@@ -74,7 +78,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-05-06T07:54:07.000Z" itemprop="datePublished">5月 6 2015</time>
-    更新日期:<time datetime="2015-05-06T07:56:07.000Z" itemprop="dateModified">5月 6 2015</time>
+    更新日期:<time datetime="2015-05-06T07:58:38.000Z" itemprop="dateModified">5月 6 2015</time>
     
   </p>
 </header>
@@ -86,8 +90,14 @@
 		
 		</div>
 		
-		<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">KEYS pattern  </div><div class="line">     pattern 支持glob风格通配符。</div><div class="line">  </div><div class="line">KEYS 命令需要遍历Redis所有的键，数据较多时谨慎使用</div><div class="line"></div><div class="line">EXISTS key //判断一个键是否存在</div><div class="line"></div><div class="line">DEL key   //删除一个或多个键 del foo bar // <span class="number">2</span></div><div class="line"></div><div class="line">TYPE key //返回键值的数据类型</div><div class="line">     string     字符串</div><div class="line">     <span class="built_in">hash</span>       散列类型</div><div class="line">     list          列表类型</div><div class="line">     zset        有序集合类型 </div><div class="line"></div><div class="line">SET key value    // <span class="keyword">set</span> foo <span class="number">1</span></div><div class="line">GET key            // get foo</div><div class="line">INCRBY  num increment        // <span class="keyword">set</span> foo <span class="number">1</span> INCRBY foo <span class="number">2</span> //<span class="number">3</span></div><div class="line">INCR num        //<span class="keyword">set</span> foo <span class="number">1</span>    incr foo   //<span class="number">2</span> （当操作的键不存在时默认值<span class="number">0</span>，自增后为<span class="number">1</span>，值为字符串会报错）</div><div class="line">                            incr为原子操作无论多个客户端连接不会出现递增错误。</div><div class="line">INCRBYFLOAT key increment //递增一个双精度浮点数 </div><div class="line">DECR key     //递减 </div><div class="line">DECRBY      //递减</div><div class="line"></div><div class="line"></div><div class="line">生成自增ID </div><div class="line">               INCR count (用来自增计数)</div><div class="line">               SET  user:count ‘aaa<span class="string">'</span></div><div class="line"></div><div class="line">APPEND key value      //向键值的尾部追加value ，如果键不存在这set  返回值是追加字符串的总长度</div><div class="line">STRLEN key                //返回指定键的值的长度 ut8 中文3占3个字符</div><div class="line">MSET                          //设置多个键值 MSET key1 v1 key2 v2</div><div class="line">MGET                         //获取多个键值  MGET key1 key2</div></pre></td></tr></table></figure>
-
+		<p>KEYS pattern<br>     pattern 支持glob风格通配符。</p>
+<p>KEYS 命令需要遍历Redis所有的键，数据较多时谨慎使用</p>
+<p>EXISTS key //判断一个键是否存在</p>
+<p>DEL key   //删除一个或多个键 del foo bar // 2</p>
+<p>TYPE key //返回键值的数据类型<br>     string     字符串<br>     hash       散列类型<br>     list       列表类型<br>     zset       有序集合类型 </p>
+<p>SET key value                // set foo 1<br>GET key                      // get foo<br>INCRBY  num increment        // set foo 1 INCRBY foo 2 //3<br>INCR num                     //set foo 1    incr foo   //2 （当操作的键不存在时默认值0，自增后为1，值为字符串会报错）<br>                                incr为原子操作无论多个客户端连接不会出现递增错误。<br>INCRBYFLOAT key increment   //递增一个双精度浮点数<br>DECR key                    //递减<br>DECRBY                      //递减</p>
+<p>生成自增ID(demo)<br>    INCR count (用来自增计数)<br>    SET  user:count ‘aaa’</p>
+<p>APPEND key value           //向键值的尾部追加value ，如果键不存在这set  返回值是追加字符串的总长度<br>STRLEN key                //返回指定键的值的长度 ut8 中文3占3个字符<br>MSET                      //设置多个键值 MSET key1 v1 key2 v2<br>MGET                      //获取多个键值  MGET key1 key2</p>
   
 	</div>
 		<footer class="article-footer clearfix">
