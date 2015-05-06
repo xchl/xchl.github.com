@@ -74,7 +74,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-05-06T08:04:54.000Z" itemprop="datePublished">5月 6 2015</time>
-    更新日期:<time datetime="2015-05-06T08:09:07.000Z" itemprop="dateModified">5月 6 2015</time>
+    更新日期:<time datetime="2015-05-06T08:16:58.000Z" itemprop="dateModified">5月 6 2015</time>
     
   </p>
 </header>
@@ -87,8 +87,7 @@
 		</div>
 		
 		<p>列表类型（list）可以存储一个有序的字符串列表，常用的操作是向列表两端添加元素，或者获得列表的某一个片段。<br>列表类型内部是使用双向链表（double linked list）实现的，所以向列表两端添加元素的时间复杂度为0，获取越接近两端的元素速度就越快。例如一个有几千万个元素的列表，获取头尾10条记录和只有20记录的列表获取速度是一样的。</p>
-<p>LPUSH key val [val…]     //向列表左端增加元素 返回值是元素增加后的列表长度<br>          lpush key 1 2 3</p>
-<p>RPUSH key val [val…]<br>          push key 0 -1</p>
+<p>LPUSH key val [val…]     //向列表左端增加元素 返回值是元素增加后的列表长度<br>          lpush key 1 2 3<br>    <img src="http://7vij1e.com1.z0.glb.clouddn.com/lpush.png" alt="redis lpush" title="Redis lpush"><br>RPUSH key val [val…]<br>          push key 0 -1<br>    <img src="http://7vij1e.com1.z0.glb.clouddn.com/rpush.png" alt="redis rpush" title="Redis rpush"></p>
 <p>LPOP key           //从左边弹出<br>RPOP key          //从右边弹出</p>
 <p>LLEN key      //返回列表中元素个数</p>
 <p>LRANGE key start stop       //获取列表中的某一片段。支持负索引 lrange key 0 -1(获取所有元素)</p>
@@ -168,7 +167,7 @@
 		
 			<li><a href="/categories/php/" title="php">php<sup>1</sup></a></li>
 		
-			<li><a href="/categories/Redis/" title="redis">redis<sup>4</sup></a></li>
+			<li><a href="/categories/Redis/" title="redis">redis<sup>5</sup></a></li>
 		
 			<li><a href="/categories/工具/" title="tools">tools<sup>0</sup></a></li>
 		
@@ -193,7 +192,7 @@
 		
 			<li><a href="/tags/mobile/" title="mobile">mobile<sup>2</sup></a></li>
 		
-			<li><a href="/tags/redis/" title="redis">redis<sup>4</sup></a></li>
+			<li><a href="/tags/redis/" title="redis">redis<sup>5</sup></a></li>
 		
 			<li><a href="/tags/响应式/" title="响应式">响应式<sup>1</sup></a></li>
 		
